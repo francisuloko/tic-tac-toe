@@ -22,11 +22,11 @@ puts "First Player is #{first_player_name} and starts with X"
 puts 'Please select a avaiable cell from the board'
 move = gets.chomp.to_i
 
-while move.zero?  do
+while move.zero?
   puts 'Enter a valid value'
   move = gets.chomp.to_i
 end
 
-system("clear")
+system('clear')
 
 puts "Win Player 2 is #{second_player_name}"
