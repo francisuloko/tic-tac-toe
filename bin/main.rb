@@ -11,8 +11,6 @@ first_player_name = gets.chomp
 puts 'Enter Second Player Name:'
 second_player_name = gets.chomp
 
-game = GameLogic.new(first_player_name, second_player_name)
-
 system('clear')
 
 until game.game_end?
