@@ -28,10 +28,8 @@ loop do
     move = gets.chomp.to_i
   end
 
-  if move == 3
-    puts "Win Player 2 is #{second_player_name}"
-    break
-  end
+  puts "Win Player 2 is #{second_player_name}" if move == 3
+  break if move == 3
 
   puts "It's #{second_player_name} turn"
   puts 'Please select a avaiable cell from the board'
