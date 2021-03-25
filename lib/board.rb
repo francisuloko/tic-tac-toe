@@ -9,11 +9,11 @@ class Board
   def set_value_grid?(position, mark)
     new_value = position.to_i
     valid = false
-    if(new_value >= 1 && new_value <= 9)
+    if new_value >= 1 && new_value <= 9
       new_value -= 1
       x_y = get_x_y(new_value)
       valid = verify_cell?(x_y)
-      valid = set_mark_cell?(x_y, mark) if valid
+      valid = update_mark_cell?(x_y, mark) if valid
     end
     valid
   end
@@ -24,35 +24,35 @@ class Board
   end
 
   private
+
   def default_grid
-      Array.new(3) { Array.new(3) { Cell.new }}
+    Array.new(3) { Array.new(3) { Cell.new } }
   end
 
   def set_grid
-    if @cell_grid.nil?
-      @cell_grid = default_grid
-    end
+    @cell_grid = default_grid if @cell_grid.nil?
   end
 
   def verify_cell?(postition)
-    @cell_grid[postition.x][postition.y].valid?   
-  end
-  
-  def set_mark_cell?(postition, mark)
-    @cell_grid[postition.x][postition.y].set_mark?(mark)
+    @cell_grid[postition.x][postition.y].valid?
   end
 
-  def get_x_y (position)
+  def update_mark_cell?(postition, mark)
+    @cell_grid[postition.x][postition.y].update_mark?(mark)
+  end
+
+  def get_x_y(position)
     x = position / 3
     y = position % 3
-    Position.new(x,y)
+    Position.new(x, y)
   end
 end
 
 class Position
   attr_reader :x, :y
-  def initialize(x, y)
-    @x = x
-    @y = y 
+
+  def initialize(pos_x, pos_y)
+    @x = pos_x
+    @y = pos_y
   end
 end

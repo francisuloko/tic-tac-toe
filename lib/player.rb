@@ -8,7 +8,6 @@ class Player
   end
 
   def add_move(move)
-    @moves<<move
+    @moves << move
   end
-
 end

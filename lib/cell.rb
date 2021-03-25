@@ -3,12 +3,10 @@ class Cell
     @mark = ''
   end
 
-  def mark
-    @mark
-  end
+  attr_reader :mark
 
-  def set_mark?(mark)
-    if valid_mark?(mark) 
+  def update_mark?(mark)
+    if valid_mark?(mark)
       @mark = mark
       true
     else
@@ -17,10 +15,10 @@ class Cell
   end
 
   def valid_mark?(mark)
-    mark == "X" || mark == "O"
+    %w[X O].include?(mark)
   end
 
   def valid?
-    @mark=='' || @mark == nil
+    @mark == '' || @mark.nil?
   end
 end
