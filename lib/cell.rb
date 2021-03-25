@@ -1,16 +1,15 @@
 class Cell
   def initialize
-    @value = 'x'
+    @mark = ''
   end
 
-  def value
-    @value
+  def mark
+    @mark
   end
 
-  def set_value?(position, value)
-    new_value = position.to_i
-    if valid? && valid_mark?(value) && new_value > 1 && new_value <= 9
-      @value = value
+  def set_mark?(mark)
+    if valid_mark?(mark) 
+      @mark = mark
       true
     else
       false
@@ -22,6 +21,6 @@ class Cell
   end
 
   def valid?
-    @value=='' || @value == nil
+    @mark=='' || @mark == nil
   end
 end
