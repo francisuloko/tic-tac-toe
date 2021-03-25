@@ -8,7 +8,7 @@ second_player_name = gets.chomp
 puts "#{first_player_name} will play with X and #{second_player_name} plays with O"
 system('clear')
 
-while true
+loop do
   puts 'Lets start'
 
   puts '+---+---+---+'
@@ -43,11 +43,10 @@ while true
   end
 
   if move == 5
-    puts "Draw"
+    puts 'Draw'
     break
   end
   system('clear')
-
 end
 
 puts 'Game Over'
