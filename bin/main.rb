@@ -33,12 +33,12 @@ until game.game_end?
     puts '+---++---++---+'
   end
   if game.player_win?(game.player_one)
-    puts "Win #{game.player_one}"
+    puts "Win #{game.player_one.name}"
     puts 'Game Over'
     break
   end
   if game.player_win?(game.player_two)
-    puts "Win #{game.player_one}"
+    puts "Win #{game.player_two.name}"
     puts 'Game Over'
     break
   end
