@@ -1,13 +1,16 @@
 #!/usr/bin/env ruby
 
-puts 'Wellcome to Roby Tic Tac Toe!'
+puts "Welcome to Ruby's Tic-Tac-Toe!"
 
-puts 'Enter the First Player Name:'
+puts 'Enter First Player Name:'
 first_player_name = gets.chomp
-puts 'Enter the Second Player Name:'
+
+puts 'Enter Second Player Name:'
 second_player_name = gets.chomp
 
-puts 'Lets start'
+puts "#{first_player_name} will play with X and #{second_player_name} plays with O"
+
+system('clear')
 
 puts '+---+---+---+'
 puts '| 1 | 2 | 3 |'
@@ -17,16 +20,21 @@ puts '+---+---+---+'
 puts '| 7 | 8 | 9 |'
 puts '+---+---+---+'
 
-puts "First Player is #{first_player_name} and starts with X"
 
+puts "It's #{first_player_name} turn"
 puts 'Please select a avaiable cell from the board'
 move = gets.chomp.to_i
 
-while move.zero?
+while move < 1 || move > 9
   puts 'Enter a valid value'
   move = gets.chomp.to_i
 end
 
+while move = 3
+  puts "Win Player 2 is #{second_player_name}"
+end
+
 system('clear')
 
-puts "Win Player 2 is #{second_player_name}"
+
+
