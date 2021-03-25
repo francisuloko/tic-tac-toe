@@ -11,6 +11,8 @@ first_player_name = gets.chomp
 puts 'Enter Second Player Name:'
 second_player_name = gets.chomp
 
+game = GameLogic.new(first_player_name, second_player_name)
+
 system('clear')
 
 until game.game_end?
@@ -77,7 +79,7 @@ puts '+---++---++---+'
   puts '+---++---++---+'
 end
 
-unless game.player_win?(game.player_two) && game.player_win?(game.player_two)
+unless game.player_win?(game.player_one) && game.player_win?(game.player_two)
   puts 'Draw Game'
   puts 'Game Over'
 end
