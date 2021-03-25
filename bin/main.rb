@@ -65,21 +65,21 @@ until game.game_end?
   system('clear')
 end
 
-puts '+---++---++---+'
-(0...3).each do |x|
-  (0...3).each do |y|
-    position = x * 3 + y
-    if board.get_cell_value(position).valid?
-      print "| #{position + 1} |"
-    else
-      print "| #{board.get_cell_value(position).mark} |"
-    end
-  end
-  print "\r\n"
-  puts '+---++---++---+'
-end
+unless game.player_win?(game.player_one) || game.player_win?(game.player_two)
 
-unless game.player_win?(game.player_one) && game.player_win?(game.player_two)
+  puts '+---++---++---+'
+  (0...3).each do |x|
+    (0...3).each do |y|
+      position = x * 3 + y
+      if board.get_cell_value(position).valid?
+        print "| #{position + 1} |"
+      else
+        print "| #{board.get_cell_value(position).mark} |"
+      end
+    end
+    print "\r\n"
+    puts '+---++---++---+'
+  end
   puts 'Draw Game'
   puts 'Game Over'
 end
