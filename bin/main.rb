@@ -45,7 +45,7 @@ until game.game_end?
 
   if game.turn.even?
     puts "It's #{game.player_one.name} turn"
-    puts 'Please select a avaiable cell from the board'
+    puts 'Please select an available cell from the board'
     move = gets.chomp.to_i
     until game.play_player?(game.player_one, move)
       puts "Enter a valid value #{game.player_one.name}"
