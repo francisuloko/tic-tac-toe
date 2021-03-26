@@ -33,7 +33,7 @@ of a grid of nine squares" (Oxford Dictionary).
 
 ## Live Demo
 
-[Live Demo Link](./assets/tictactoe_livedemo.gif)
+![Live Demo Link](./assets/tictactoe_livedemo.gif)
 
 ## Getting Started
 
