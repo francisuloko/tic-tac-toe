@@ -4,7 +4,7 @@ require_relative '../lib/cell'
 require_relative '../lib/board'
 require_relative '../lib/player'
 require_relative '../lib/game_logic'
-
+system('clear')
 puts "Welcome to Ruby's Tic-Tac-Toe!"
 puts 'Enter First Player Name:'
 first_player_name = gets.chomp
@@ -17,7 +17,7 @@ system('clear')
 
 until game.game_end?
   board = game.board
-  puts 'Lets start'
+  puts "Let's start"
 
   puts '+---++---++---+'
   (0...3).each do |x|
@@ -33,12 +33,12 @@ until game.game_end?
     puts '+---++---++---+'
   end
   if game.player_win?(game.player_one)
-    puts "Win #{game.player_one.name}"
+    puts "#{game.player_one.name} WINS!"
     puts 'Game Over'
     break
   end
   if game.player_win?(game.player_two)
-    puts "Win #{game.player_two.name}"
+    puts "#{game.player_two.name} WINS!"
     puts 'Game Over'
     break
   end
