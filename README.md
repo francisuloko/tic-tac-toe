@@ -41,9 +41,9 @@ To get a local copy up and running follow these simple example steps.
 
 1. Open terminal or command line
 2. Run the following commands
-   $ `git clone https://github.com/francisuloko/tic-tac-toe.git`
-   $ `cd tic-tac-toe/bin/`
-   $ `./main.rb` OR `ruby main.rb`
+ - $ `git clone https://github.com/francisuloko/tic-tac-toe.git`
+ - $ `cd tic-tac-toe/bin/`
+ - $ `./main.rb` OR `ruby main.rb`
 
 
 ## Built With
