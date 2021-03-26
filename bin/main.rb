@@ -1,50 +1,85 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/cell'
+require_relative '../lib/board'
+require_relative '../lib/player'
+require_relative '../lib/game_logic'
+system('clear')
 puts "Welcome to Ruby's Tic-Tac-Toe!"
 puts 'Enter First Player Name:'
 first_player_name = gets.chomp
 puts 'Enter Second Player Name:'
 second_player_name = gets.chomp
-puts "#{first_player_name} will play with X and #{second_player_name} plays with O"
+
+game = GameLogic.new(first_player_name, second_player_name)
+
 system('clear')
 
-loop do
-  puts 'Lets start'
+until game.game_end?
+  board = game.board
+  puts "Let's start"
 
-  puts '+---+---+---+'
-  puts '| 1 | 2 | 3 |'
-  puts '+---+---+---+'
-  puts '| 4 | 5 | 6 |'
-  puts '+---+---+---+'
-  puts '| 7 | 8 | 9 |'
-  puts '+---+---+---+'
-
-  puts "It's #{first_player_name} turn"
-  puts 'Please select a avaiable cell from the board'
-  move = gets.chomp.to_i
-
-  while move < 1 || move > 9
-    puts "Enter a valid value #{first_player_name}"
-    move = gets.chomp.to_i
+  puts '+---++---++---+'
+  (0...3).each do |x|
+    (0...3).each do |y|
+      position = x * 3 + y
+      if board.get_cell_value(position).valid?
+        print "| #{position + 1} |"
+      else
+        print "| #{board.get_cell_value(position).mark} |"
+      end
+    end
+    print "\r\n"
+    puts '+---++---++---+'
   end
-
-  puts "Win Player 2 is #{second_player_name}" if move == 3
-  break if move == 3
-
-  puts "It's #{second_player_name} turn"
-  puts 'Please select a avaiable cell from the board'
-  move = gets.chomp.to_i
-
-  while move < 1 || move > 9
-    puts "Enter a valid value #{second_player_name}"
-    move = gets.chomp.to_i
-  end
-
-  if move == 5
-    puts 'Draw'
+  if game.player_win?(game.player_one)
+    puts "#{game.player_one.name} WINS!"
+    puts 'Game Over'
     break
   end
+  if game.player_win?(game.player_two)
+    puts "#{game.player_two.name} WINS!"
+    puts 'Game Over'
+    break
+  end
+
+  if game.turn.even?
+    puts "It's #{game.player_one.name}'s turn"
+    puts 'Please select an available cell from the board'
+    move = gets.chomp.to_i
+    until game.play_player?(game.player_one, move)
+      puts "Enter a valid value #{game.player_one.name}"
+      move = gets.chomp.to_i
+    end
+  else
+    puts "It's #{game.player_two.name} turn"
+    puts 'Please select an available cell from the board'
+    move = gets.chomp.to_i
+    until game.play_player?(game.player_two, move)
+      puts "Enter a valid value #{game.player_two.name}"
+      move = gets.chomp.to_i
+    end
+  end
+
+  game.next_turn
   system('clear')
 end
 
-puts 'Game Over'
+unless game.player_win?(game.player_one) || game.player_win?(game.player_two)
+
+  puts '+---++---++---+'
+  (0...3).each do |x|
+    (0...3).each do |y|
+      position = x * 3 + y
+      if board.get_cell_value(position).valid?
+        print "| #{position + 1} |"
+      else
+        print "| #{board.get_cell_value(position).mark} |"
+      end
+    end
+    print "\r\n"
+    puts '+---++---++---+'
+  end
+  puts 'Draw Game'
+  puts 'Game Over'
+end
