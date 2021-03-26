@@ -6,7 +6,7 @@
 
 ![screenshot](./assets/screenshot.png)
 
-This is a colloborative project to build a game of TicTacToe puting into practice
+This is a colloborative project to build a game of TicTacToe putting into practice
 the concepts of Object Oriented Programming (OOP). We have demonstrated the use of
 classes in Ruby and how to access their properties and methods. Here is a brief description
 of TicTacToe.
@@ -16,7 +16,7 @@ a column, or a diagonal with either three O's or three X's drawn in the spaces
 of a grid of nine squares" (Oxford Dictionary).
 
 ## Game Rules
-![winning_moves](./assets/winmoves.png)
+<img src="./assets/winmoves.png" alt="winning moves" width="600" height="320">
 
 1. Player Wins Game when they place 3 marks (`X` or `O`) in a row either horizontally,
    vertically or diagonally. 
